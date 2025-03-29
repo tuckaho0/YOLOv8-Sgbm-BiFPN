@@ -42,7 +42,7 @@ class YOLO(object):
         #   如果出现shape不匹配，同时要注意训练时的model_path和classes_path参数的修改
         #--------------------------------------------------------------------------#
         "model_path"        : r'D:\YOLO\YOLOv8-Sgbm-BiFPN\yolov8_pytorch\model_data\yolov8_s.pth',
-        "classes_path"      : r'D:\YOLO\YOLOv8-Sgbm-BiFPN\yolov8_pytorch\model_data\coco_classes.txt',
+        "classes_path"      : r'D:\YOLO\YOLOv8-Sgbm-BiFPN\yolov8_pytorch\model_data\voc_classes.txt',
         #---------------------------------------------------------------------#
         #   输入图片的大小，必须为32的倍数。
         #---------------------------------------------------------------------#
