@@ -13,9 +13,9 @@ import torch.nn as nn
 import torch.optim as optim
 from torch.utils.data import DataLoader
 
-from nets.yolo import YoloBody
+from yolov8_pytorch.models.yolo import YoloBody
 from nets.yolo_training import (Loss, ModelEMA, get_lr_scheduler,
-                                set_optimizer_lr, weights_init)
+                                set_optimizer_lr)
 from utils.callbacks import EvalCallback, LossHistory
 from utils.dataloader import YoloDataset, yolo_dataset_collate
 from utils.utils import (download_weights, get_classes, seed_everything,
@@ -74,7 +74,7 @@ if __name__ == "__main__":
     #   classes_path    指向model_data下的txt，与自己训练的数据集相关 
     #                   训练前一定要修改classes_path，使其对应自己的数据集
     #---------------------------------------------------------------------#
-    classes_path    = r'D:\YOLO\YOLOv8-Sgbm-1\yolov8_pytorch\model_data\coco_classes.txt'
+    classes_path    = r'D:\YOLO\YOLOv8-Sgbm-BiFPN\yolov8_pytorch\model_data\coco_classes.txt'
     #----------------------------------------------------------------------------------------------------------------------------#
     #   权值文件的下载请看README，可以通过网盘下载。模型的 预训练权重 对不同数据集是通用的，因为特征是通用的。
     #   模型的 预训练权重 比较重要的部分是 主干特征提取网络的权值部分，用于进行特征提取。
@@ -94,7 +94,7 @@ if __name__ == "__main__":
     #      可以设置mosaic=True，直接随机初始化参数开始训练，但得到的效果仍然不如有预训练的情况。（像COCO这样的大数据集可以这样做）
     #   2、了解imagenet数据集，首先训练分类模型，获得网络的主干部分权值，分类模型的 主干部分 和该模型通用，基于此进行训练。
     #----------------------------------------------------------------------------------------------------------------------------#
-    model_path      = 'D:\YOLO\YOLOv8-Sgbm-1\yolov8_pytorch\model_data\yolov8_s.pth'
+    model_path      = r'D:\YOLO\YOLOv8-Sgbm-BiFPN\yolov8_pytorch\model_data\yolov8_s.pth'
     #------------------------------------------------------#
     #   input_shape     输入的shape大小，一定要是32的倍数
     #------------------------------------------------------#
@@ -246,8 +246,8 @@ if __name__ == "__main__":
     #   train_annotation_path   训练图片路径和标签
     #   val_annotation_path     验证图片路径和标签
     #------------------------------------------------------#
-    train_annotation_path   = '2007_train.txt'
-    val_annotation_path     = '2007_val.txt'
+    train_annotation_path   = r'D:\YOLO\YOLOv8-Sgbm-BiFPN\yolov8_pytorch\2007_train.txt'
+    val_annotation_path     = r'D:\YOLO\YOLOv8-Sgbm-BiFPN\yolov8_pytorch\2007_val.txt'
 
     seed_everything(seed)
     #------------------------------------------------------#
@@ -288,7 +288,7 @@ if __name__ == "__main__":
     #------------------------------------------------------#
     model = YoloBody(
         input_shape=(640, 640, 3),
-        num_classes=20,  # 必须与预训练权重一致（COCO为80类）
+        num_classes=80,  # 必须与预训练权重一致（COCO为80类）
         phi='l'
     )
     if model_path != '':

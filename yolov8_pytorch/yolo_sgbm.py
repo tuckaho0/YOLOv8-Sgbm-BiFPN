@@ -8,7 +8,7 @@ sys.path.append('yolov8_pytorch')
 import numpy as np
 import torch
 import torch.nn as nn
-from PIL import ImageDraw, ImageFont, Image
+from PIL import Image
 import cv2
 
 #from nets.yolo import YoloBody
@@ -26,7 +26,7 @@ if project_root not in sys.path:
 
 
 
-from nets.yolo import YoloBody
+from yolov8_pytorch.models.yolo import YoloBody
 
 '''
 训练自己的数据集必看注释！
@@ -41,8 +41,8 @@ class YOLO(object):
         #   验证集损失较低不代表mAP较高，仅代表该权值在验证集上泛化性能较好。
         #   如果出现shape不匹配，同时要注意训练时的model_path和classes_path参数的修改
         #--------------------------------------------------------------------------#
-        "model_path"        : r'D:\YOLO\YOLOv8-Sgbm-1\yolov8_pytorch\model_data\yolov8_s.pth',
-        "classes_path"      : r'D:\YOLO\YOLOv8-Sgbm-1\yolov8_pytorch\model_data\coco_classes.txt',
+        "model_path"        : r'D:\YOLO\YOLOv8-Sgbm-BiFPN\yolov8_pytorch\model_data\yolov8_s.pth',
+        "classes_path"      : r'D:\YOLO\YOLOv8-Sgbm-BiFPN\yolov8_pytorch\model_data\coco_classes.txt',
         #---------------------------------------------------------------------#
         #   输入图片的大小，必须为32的倍数。
         #---------------------------------------------------------------------#

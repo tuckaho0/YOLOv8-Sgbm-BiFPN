@@ -4,7 +4,7 @@
 import torch
 from thop import clever_format, profile
 
-from nets.yolo import YoloBody
+from yolov8_pytorch.models.yolo import YoloBody
 
 if __name__ == "__main__":
     input_shape     = [640, 640]

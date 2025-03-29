@@ -20,7 +20,7 @@ annotation_mode     = 2
 #   那么就是因为classes没有设定正确
 #   仅在annotation_mode为0和2的时候有效
 #-------------------------------------------------------------------#
-classes_path        = r'D:\YOLO\YOLOv8-Sgbm - 1\yolov8_pytorch\model_data\voc_classes.txt'
+classes_path        = r'D:\YOLO\YOLOv8-Sgbm-BiFPN\yolov8_pytorch\model_data\voc_classes.txt'
 #--------------------------------------------------------------------------------------------------------------------------------#
 #   trainval_percent用于指定(训练集+验证集)与测试集的比例，默认情况下 (训练集+验证集):测试集 = 9:1
 #   train_percent用于指定(训练集+验证集)中训练集与验证集的比例，默认情况下 训练集:验证集 = 9:1
